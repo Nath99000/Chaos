@@ -1,6 +1,7 @@
 package com.chaos.main;
 
 import com.chaos.main.graphics.Screen;
+import com.chaos.main.input.Keyboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ public class Game extends Canvas implements Runnable {
 
     private Thread thread;
     private JFrame frame;
+    private Keyboard key;
     private boolean running = false;
 
     private Screen screen;
@@ -30,8 +32,10 @@ public class Game extends Canvas implements Runnable {
         setPreferredSize(size);
 
         screen = new Screen(width, height);
-
         frame = new JFrame();
+        key = new Keyboard();
+
+        addKeyListener(key);
     }
 
     public synchronized void start() {
@@ -79,7 +83,14 @@ public class Game extends Canvas implements Runnable {
         stop();
     }
 
+    int x = 0, y = 0;
+
     public void update() {
+        key.update();
+        if (key.up) y--;
+        if (key.down) y++;
+        if (key.left) x--;
+        if (key.right) x++;
     }
 
     public void render() {
@@ -90,7 +101,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         screen.clear();
-        screen.render();
+        screen.render(x, y);
 
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = screen.pixels[i];
