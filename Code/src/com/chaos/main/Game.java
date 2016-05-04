@@ -15,8 +15,7 @@ public class Game extends Canvas implements Runnable {
     public static int width = 550;
     public static int height = width / 16 * 9;
     public static int scale = 3;
-    public static String title = "Rain";
-
+    public static String title = "Chaos";
     private Thread thread;
     private JFrame frame;
     private Keyboard key;
@@ -60,6 +59,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         int frames = 0;
         int updates = 0;
+        requestFocus();
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -123,7 +123,6 @@ public class Game extends Canvas implements Runnable {
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.frame.setLocationRelativeTo(null);
         game.frame.setVisible(true);
-
         game.start();
     }
 }

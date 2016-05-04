@@ -7,8 +7,10 @@ import java.io.IOException;
 public class SpriteSheet {
 
     private String path;
-    private final int SIZE;
+    public final int SIZE;
     public int[] pixels;
+
+    public static SpriteSheet tiles = new SpriteSheet("/res/textures/basic.png", 32);
 
     public SpriteSheet(String path, int size) {
         this.path = path;
@@ -27,5 +29,4 @@ public class SpriteSheet {
             e.printStackTrace();
         }
     }
-
 }
