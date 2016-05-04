@@ -9,6 +9,7 @@ public class Tile {
     public Sprite sprite;
 
     public static Tile grass = new TileBackground(Sprite.basic);
+    public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 
     public Tile(Sprite sprite) {
         this.sprite = sprite;

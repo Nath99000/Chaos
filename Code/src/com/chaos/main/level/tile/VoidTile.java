@@ -3,9 +3,9 @@ package com.chaos.main.level.tile;
 import com.chaos.main.graphics.Screen;
 import com.chaos.main.graphics.Sprite;
 
-public class TileBackground extends Tile {
+public class VoidTile extends Tile {
 
-    public TileBackground(Sprite sprite) {
+    public VoidTile(Sprite sprite) {
         super(sprite);
     }
 
